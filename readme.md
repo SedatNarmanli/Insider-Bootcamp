@@ -2,7 +2,7 @@
 
 True Detective dizisinin 1. sezonunu tanıtan responsive bir web sitesi projesi.
 
-![Masaüstü Görünümü](./screenshots/web.png)
+![Masaüstü Görünümü](./Insider%20Bootcamp%20-%20Proje%201/screenshots/web.PNG)
 
 ## ✨ Özellikler
 
@@ -15,20 +15,20 @@ True Detective dizisinin 1. sezonunu tanıtan responsive bir web sitesi projesi.
 - 🎥 YouTube video entegrasyonu
 
 ## 📱 Mobil Görünüm ve Navigasyon
-![Mobil Görünüm](./screenshots/mobile.png)
-![Mobil Menü](./screenshots/hamburger.png)
+![Mobil Görünüm](./Insider%20Bootcamp%20-%20Proje%201/screenshots/mobile.png)
+![Mobil Menü](./Insider%20Bootcamp%20-%20Proje%201/screenshots/hamburger.png)
 
 ## 🎭 Karakter Kartları
-![Karakterler Bölümü](./screenshots/karakterler.png)
+![Karakterler Bölümü](./Insider%20Bootcamp%20-%20Proje%201/screenshots/karakterler.PNG)
 
 ## 📺 Bölümler
-![Bölümler Bölümü](./screenshots/bölümler.png)
+![Bölümler Bölümü](./Insider%20Bootcamp%20-%20Proje%201/screenshots/bölümler.PNG)
 
 ## 🎥 Favori Sahne
-![Favori Sahne Bölümü](./screenshots/favori.png)
+![Favori Sahne Bölümü](./Insider%20Bootcamp%20-%20Proje%201/screenshots/favori.PNG)
 
 ## 👣 Footer
-![Footer Bölümü](./screenshots/footer.png)
+![Footer Bölümü](./Insider%20Bootcamp%20-%20Proje%201/screenshots/footer.PNG)
 
 ## 🛠️ Kullanılan Teknolojiler
 
@@ -49,14 +49,6 @@ True Detective dizisinin 1. sezonunu tanıtan responsive bir web sitesi projesi.
     └── ...
 ```
 
-## ⚙️ Kurulum
-
-1. Projeyi klonlayın
-```bash
-git clone https://github.com/SedatNarmanli/true-detective-web
-```
-
-2. İndex.html dosyasını tarayıcınızda açın
 
 ## 🔍 Temel Bileşenler
 
