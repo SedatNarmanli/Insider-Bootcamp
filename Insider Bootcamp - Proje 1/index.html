@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True Detective - Season 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">True Detective</div>
+        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="#home">Ana Sayfa</a></li>
+            <li><a href="#characters">Karakterler</a></li>
+            <li><a href="#episodes">Bölümler</a></li>
+            <li><a href="#favorite-scene">Favori Sahne</a></li>
+        </ul>
+        <div class="profile-icon">👤</div>
+    </nav>
+    
+    <!-- Ana Sayfa -->
+    <section id="home" class="home">
+        <div class="home-content">
+            <h1>True Detective: Season 1</h1>
+            <p class="tagline">"Karanlık, sırlarla dolu bir yolculuk..."</p>
+            <a href="https://www.imdb.com/title/tt2356777/" target="_blank">
+                <img src="assets/poster.jpg" alt="True Detective Poster" class="poster">
+            </a>
+            <p class="description">Louisiana'da geçen bir suç dramı. Rust Cohle ve Marty Hart, karmaşık bir cinayet davasını çözmeye çalışırken kendi karanlık geçmişleriyle yüzleşirler.</p>
+            <button id="favorite-btn">Favorilere Ekle</button>
+        </div>
+    </section>
+
+    <!-- Karakterler Bölümü -->
+    <section id="characters" class="characters">
+        <h2>Ana Karakterler</h2>
+        <div class="character-list">
+            <div class="character-card">
+                <img src="assets/rust.jpg" alt="Rust Cohle">
+                <h3>Rust Cohle</h3>
+                <p>Zeki, gizemli ve felsefi dedektif.</p>
+            </div>
+            <div class="character-card">
+                <img src="assets/marty.jpg" alt="Marty Hart">
+                <h3>Marty Hart</h3>
+                <p>Ailesine bağlı, ama hatalar yapan dedektif.</p>
+            </div>
+            <div class="character-card">
+                <img src="assets/maggie.jpg" alt="Maggie Hart">
+                <h3>Maggie Hart</h3>
+                <p>Marty'nin eşi, olayların içinde önemli bir figür.</p>
+            </div>
+        </div>
+    </section>
+    <section id="favorite-scene" class="favorite-scene">
+        <h2>Favori Sahne</h2>
+        <p>1. sezonun final sahnesi: Rust ve Marty'nin yıldızları izlediği sahne.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/XmdPY-hFSt0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+    
+    <!-- Bölümler -->
+    <section id="episodes" class="episodes">
+        <h2>Bölümler</h2>
+        <div class="episode-list">
+            <div class="episode-card">
+                <h3><a href="https://www.imdb.com/title/tt2657398/?ref_=ttep_ep_1" target="_blank">Bölüm 1 - The Long Bright Dark</a></h3>
+                <p>Dedektifler, eski bir cinayet davasını tekrar inceliyor.</p>
+            </div>
+            <div class="episode-card">
+                <h3><a href="https://www.imdb.com/title/tt2704380/?ref_=ttep_ep_2" target="_blank">Bölüm 2 - Seeing Things</a></h3>
+                <p>Rust ve Marty, ipuçlarını takip ederken kişisel sorunlarıyla da yüzleşiyor.</p>
+            </div>
+            <div class="episode-card">
+                <h3><a href="https://www.imdb.com/title/tt2790184/?ref_=ttep_ep_3" target="_blank">Bölüm 3 - The Locked Room</a></h3>
+                <p>Cinayet davası derinleşirken, karanlık sırlar gün yüzüne çıkıyor.</p>
+            </div>
+            <div class="episode-card">
+                <h3><a href="https://www.imdb.com/title/tt2790174/?ref_=ttep_ep_4" target="_blank">Bölüm 4 - Who Goes There</a></h3>
+                <p>Rust, gizli bir göreve girerken Marty ailevi sorunlarla boğuşuyor.</p>
+            </div>
+            <div class="episode-card">
+                <h3><a href="https://www.imdb.com/title/tt2790196/?ref_=ttep_ep_5" target="_blank">Bölüm 4 - The Secret Fate of All Life</a></h3>
+                <p>Dedektifler, kritik bir dönüm noktasına ulaşıyor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Hazırlayan: Mustafa Sedat Narmanlı</p>
+        <div class="social-links">
+            <a href="https://github.com/SedatNarmanli" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/sedat-narmanli/" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
