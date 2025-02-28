@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geri Sayım</title>
+    <style>
+        /* Sayfayı ortalamak için */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Input style */
+        #timeInput {
+            width: 200px;
+            height: 40px;
+            font-size: 18px;
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* Butonlar */
+        button {
+            width: 120px;
+            height: 40px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 6px;
+            border: none;
+        }
+
+        /* Başlat butonu */
+        #startBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Sıfırla butonu */
+        #resetBtn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* Geri sayım metni */
+        #countdown {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="timeInput" placeholder="Süreyi gir (sn)" min="1">
+    <button id="startBtn">Başlat</button>
+    <button id="resetBtn">Sıfırla</button>
+    <p id="countdown">Süreyi girip başlatın.</p>
+
+    <script>
+        let countdown;
+        let timeLeft;
+
+        document.getElementById("startBtn").addEventListener("click", function () {
+            const input = document.getElementById("timeInput");
+            timeLeft = parseInt(input.value, 10);
+            if (isNaN(timeLeft) || timeLeft <= 0) {
+                alert("Lütfen geçerli bir süre girin!");
+                return;
+            }
+
+            clearInterval(countdown);
+            document.getElementById("countdown").textContent = timeLeft;
+
+            countdown = setInterval(() => {
+                timeLeft--;
+                document.getElementById("countdown").textContent = timeLeft > 0 ? timeLeft : "Süre doldu!";
+                if (timeLeft <= 0) clearInterval(countdown);
+            }, 1000);
+        });
+
+        document.getElementById("resetBtn").addEventListener("click", function () {
+            clearInterval(countdown);
+            document.getElementById("countdown").textContent = "Süreyi girip başlatın.";
+            document.getElementById("timeInput").value = "";
+        });
+    </script>
+</body>
+</html>
