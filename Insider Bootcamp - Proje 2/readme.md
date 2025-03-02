@@ -4,7 +4,7 @@ Smart Todo, görevlerinizi düzenlemenizi sağlayan, öncelik belirleme, sırala
 
 ![Uygulama Ekran Görüntüsü](/Insider%20Bootcamp%20-%20Proje%202/screenshots/Uygulama.JPG)
 
-![Uygulama Ek Görünümü](/Insider%20Bootcamp%20-%20Proje%202/screenshots/uygulama2.JPG)
+
 
 ## ✨ Özellikler
 
@@ -23,6 +23,8 @@ Smart Todo, görevlerinizi düzenlemenizi sağlayan, öncelik belirleme, sırala
 - 🗂 **Listeyi yönetin**: Görevlerinizi tamamlayabilir, silebilir veya önceliğe göre sıralayabilirsiniz.
 - 🔎 **Arama ve filtreleme**: Görevlerinizi hızla bulun ve tamamlananları ayrı görüntüleyin.
 - 📊 **İlerleme takibi**: Görevlerinizi tamamlama oranınızı takip edin ve motivasyonunuzu artırın!
+
+![Uygulama Ek Görünümü](/Insider%20Bootcamp%20-%20Proje%202/screenshots/uygulama2.JPG)
 
 ## 🛠️ Kullanılan Teknolojiler
 
