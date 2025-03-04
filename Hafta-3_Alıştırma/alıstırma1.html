@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenci Listesi</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: lightgray;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .selected {
+            background-color: yellow !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Öğrenci Listesi</h2>
+
+    <!-- Öğrenci Ekleme Formu -->
+    <input type="text" id="studentName" placeholder="Öğrenci Adı">
+    <input type="text" id="studentClass" placeholder="Sınıfı">
+    <button id="addStudent">Ekle</button>
+
+    <!-- Öğrenci Listesi Tablosu -->
+    <table>
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Sınıf</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody"></tbody>
+    </table>
+
+    <script>
+        // Başlangıçta bazı öğrenci verileri
+        let studentData = [
+            { name: "Ali", class: "10A" },
+            { name: "Ayşe", class: "11B" },
+            { name: "Mehmet", class: "9C" }
+        ];
+
+        // Sayfa yüklendiğinde tabloyu doldur
+        function renderTable() {
+            $("#studentTableBody").empty(); // Önce temizle
+            studentData.forEach((student, index) => {
+                $("#studentTableBody").append(`
+                    <tr data-index="${index}">
+                        <td>${student.name}</td>
+                        <td>${student.class}</td>
+                        <td><button class="deleteBtn">Sil</button></td>
+                    </tr>
+                `);
+            });
+        }
+
+        // Yeni öğrenci ekleme
+        $("#addStudent").click(() => {
+            let name = $("#studentName").val().trim();
+            let studentClass = $("#studentClass").val().trim();
+
+            if (name && studentClass) {
+                studentData.push({ name, class: studentClass });
+                renderTable();
+                $("#studentName").val(""); // Inputları temizle
+                $("#studentClass").val("");
+            }
+        });
+
+        // Öğrenci silme
+        $(document).on("click", ".deleteBtn", function () {
+            let index = $(this).closest("tr").data("index");
+            studentData.splice(index, 1);
+            renderTable();
+        });
+
+        // Satıra tıklayınca rengini değiştirme
+        $(document).on("click", "tr", function () {
+            $(this).toggleClass("selected");
+        });
+
+        // Sayfa yüklendiğinde tabloyu oluştur
+        $(document).ready(() => {
+            renderTable();
+        });
+    </script>
+
+</body>
+</html>
