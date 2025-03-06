@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Listesi</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        #postContainer {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .post {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        #loading {
+            font-weight: bold;
+            color: blue;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>JSONPlaceholder Post Listesi</h1>
+    
+    <div id="postContainer"></div>
+    <p id="loading">Yükleniyor...</p>
+
+    <script>
+        $(document).ready(function () {
+            let start = 0;
+            let limit = 5;
+            let isLoading = false;
+
+            function loadPosts() {
+                if (isLoading) return;
+                isLoading = true;
+                $("#loading").show();
+
+                $.get(`https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=${limit}`)
+                    .done(function (data) {
+                        data.forEach(post => {
+                            $("#postContainer").append(`
+                                <div class="post">
+                                    <h2>${post.title}</h2>
+                                    <p>${post.body}</p>
+                                </div>
+                            `);
+                        });
+                        start += limit;
+                    })
+                    .fail(function () {
+                        alert("Postlar yüklenirken bir hata oluştu!");
+                    })
+                    .always(function () {
+                        isLoading = false;
+                        $("#loading").hide();
+                    });
+            }
+
+            loadPosts();
+
+            $(window).scroll(function () {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height() - 50) {
+                    loadPosts();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
