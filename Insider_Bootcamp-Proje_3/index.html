@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini E-Ticaret Uygulaması</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mini E-Ticaret</h1>
+            <div class="search-container">
+                <input type="number" id="productIdSearch" placeholder="Ürün ID'si ile ara...">
+                <button id="searchBtn">Ara</button>
+            </div>
+            <div class="icons">
+                <div class="cart-icon">
+                    <span class="cart-count">0</span>
+                    <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Sepet">
+                </div>
+                <div class="favorites-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Favoriler">
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <main>
+                <div class="product-filters">
+                    <button class="filter-btn active" data-category="all">Tümü</button>
+                    <button class="filter-btn" data-category="electronics">Elektronik</button>
+                    <button class="filter-btn" data-category="jewelery">Mücevher</button>
+                    <button class="filter-btn" data-category="men's clothing">Erkek Giyim</button>
+                    <button class="filter-btn" data-category="women's clothing">Kadın Giyim</button>
+                </div>
+                
+                <div id="productList" class="product-grid">
+                    <div class="loading">Ürünler yükleniyor...</div>
+                </div>
+            </main>
+
+            <aside class="cart-sidebar">
+                <div class="cart-header">
+                    <h2>Sepetim</h2>
+                    <button id="clearCart">Sepeti Temizle</button>
+                </div>
+                <div id="cart" class="cart-items">
+                    <div class="empty-cart">Sepetiniz boş</div>
+                </div>
+                <div class="cart-total">
+                    <span>Toplam:</span>
+                    <span id="cartTotal">0 ₺</span>
+                </div>
+            </aside>
+
+            <aside class="favorites-sidebar">
+                <div class="favorites-header">
+                    <h2>Favorilerim</h2>
+                    <button id="clearFavorites">Favorileri Temizle</button>
+                </div>
+                <div id="favorites" class="favorites-items">
+                    <div class="empty-favorites">Favorileriniz boş</div>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            <p>Mustafa Sedat Narmanlı © 2025 Mini E-Ticaret Uygulaması</p>
+        </footer>
+    </div>
+
+    <!-- Ürün Detay Modal Template -->
+    <div id="productDetailModal" style="display: none;">
+        <div class="product-detail">
+            <div class="product-images">
+                <!-- Ürün resimleri carousel burada olacak -->
+            </div>
+            <div class="product-info">
+                <h2 class="product-title"></h2>
+                <div class="product-price"></div>
+                <div class="product-category"></div>
+                <p class="product-description"></p>
+                <div class="product-rating">
+                    <span class="rating-value"></span>
+                    <span class="rating-count"></span>
+                </div>
+                <button class="add-to-cart-btn">Sepete Ekle</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ürün Kart Template -->
+    <template id="productCardTemplate">
+        <div class="product-card">
+            <div class="product-image">
+                <a href="" class="product-image-link" data-fancybox="gallery">
+                    <img src="" alt="">
+                </a>
+            </div>
+            <div class="product-content">
+                <h3 class="product-title"></h3>
+                <div class="product-price"></div>
+                <div class="product-category"></div>
+                <div class="product-buttons">
+                    <button class="detail-btn">Detay Göster</button>
+                    <button class="add-to-cart-btn">Sepete Ekle</button>
+                    <button class="add-to-favorites-btn">Favorilere Ekle</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Sepet Ürün Template -->
+    <template id="cartItemTemplate">
+        <div class="cart-item">
+            <div class="cart-item-image">
+                <img src="" alt="">
+            </div>
+            <div class="cart-item-details">
+                <h4 class="cart-item-title"></h4>
+                <div class="cart-item-price"></div>
+                <div class="cart-item-controls">
+                    <div class="quantity-control">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="remove-item">Kaldır</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Favori Ürün Template -->
+    <template id="favoriteItemTemplate">
+        <div class="favorite-item">
+            <div class="favorite-item-image">
+                <img src="" alt="">
+            </div>
+            <div class="favorite-item-details">
+                <h4 class="favorite-item-title"></h4>
+                <button class="remove-favorite">Kaldır</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
