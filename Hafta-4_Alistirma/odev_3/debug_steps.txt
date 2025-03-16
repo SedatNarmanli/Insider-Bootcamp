@@ -1,0 +1,36 @@
+Debuglama Adımları - Alışveriş Sepeti 
+
+Adım 1: Ürünler Dizisini Kontrol
+- console.log(products) ile ürünleri kontrol ettim, doğru tanımlı.
+
+Adım 2: Toplam Hesaplama Testi
+- Telefon (8000 TL) miktar 2 ekledim.
+- Beklenen: 16000 TL, Gerçekleşen: 8000 TL
+- Sorun: calculateTotal’da quantity çarpımı yok.
+- Düzeltme: sum + item.price yerine sum + (item.price * item.quantity).
+
+Adım 3: Stok Azaltma Eksikliği
+- Telefon ekledim, stok 10’dan düşmüyordu.
+- addItem’a product.stock -= quantity ekledim.
+- Test: Stok 10’dan 9’a düştü, doğru.
+
+Adım 4: Ürün Kaldırma Testi
+- Telefon miktar 2 ekledim, stok 8’e düştü.
+- Kaldırdım, stok 10’a dönmeliydi ama UI’da azalmış göründü.
+- Sorun: removeItem’da stockUpdate eventi eksik.
+- console.log(product.stock) ile stok 10 olduğunu gördüm, ama UI güncellenmiyor.
+
+Adım 5: removeItem Düzeltme
+- removeItem’a document.dispatchEvent(new Event('stockUpdate')) ekledim.
+- Test: Telefon silindi, stok UI’da 10’a döndü, doğru!
+
+Adım 6: İndirim Testi
+- Toplam 16000 TL, "INDIRIM10" uyguladım.
+- Beklenen: 14400 TL, Gerçekleşen: 1600 TL
+- Sorun: total *= 0.1, %10 indirim için total *= 0.9 olmalı.
+- Düzeltme: total *= 0.9 yaptım.
+
+Sonuç:
+- Toplam hesaplama, stok azaltma/artırma ve indirim düzeltildi.
+- UI stok güncelleme sorunu çözüldü.
+- Tüm işlevler çalışıyor.
